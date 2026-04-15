@@ -4,7 +4,7 @@
 
 <div class="container mt-5">
 
-    <h3 class="fw-bold mb-4" style="color:#ff7a00;">
+    <h3 class="fw-bold mb-4 text-indigo">
         Hasil Sistem Ulasan dan Rating & Rating Guru
     </h3>
 
@@ -17,7 +17,7 @@
             @foreach($guruStats as $guruId => $stats)
                 <div class="col-md-6 mb-4">
                     <div class="card shadow-lg border-0 rounded-4" style="overflow: hidden;">
-                        <div style="background: linear-gradient(135deg, #ff7a00 0%, #ffb400 100%); padding: 20px; text-align: center;">
+                        <div class="text-center py-4 bg-indigo text-white">
                             @if($stats['guru']->foto)
                                 <img src="{{ asset('storage/' . $stats['guru']->foto) }}" 
                                      alt="{{ $stats['guru']->user->name }}" 

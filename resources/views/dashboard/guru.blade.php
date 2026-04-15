@@ -2,13 +2,11 @@
 
 @section('content')
 
-<div class="main-content" style="background: #fff3e6;">
+<div class="main-content">
 
     <div class="container">
 
-        <h2 class="fw-bold mb-5" style="color:#ff7a00;">
-            Dashboard Guru
-        </h2>
+        <h2 class="fw-bold mt-4 mb-5 text-indigo">Dashboard Guru</h2>
 
         <div class="row g-4 justify-content-center">
 
@@ -19,11 +17,7 @@
                         <p class="text-muted">
                             Lihat detail hasil penilaian dari siswa.
                         </p>
-                        <a href="/guru/survey"
-                           class="btn text-white px-4 rounded-3"
-                           style="background-color:#ff7a00;">
-                            Lihat
-                        </a>
+                        <a href="/guru/survey" class="btn btn-indigo px-4 rounded-3">Lihat</a>
                     </div>
                 </div>
             </div>

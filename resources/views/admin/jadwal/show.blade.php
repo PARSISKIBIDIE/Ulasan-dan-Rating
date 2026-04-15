@@ -2,19 +2,13 @@
 
 @section('content')
 
-<div style="
-    min-height: calc(100vh - 70px);
-    background: #fff3e6;
-    padding: 40px;
-">
+<div class="main-content py-5">
 
     <div class="container-fluid">
 
         <!-- Header -->
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="fw-bold" style="color:#ff7a00;">
-                📚 Jadwal Kelas: <span style="font-size: 1.5rem;">{{ $kelas }}</span>
-            </h3>
+            <h3 class="fw-bold text-indigo">📚 Jadwal Kelas: <span style="font-size: 1.5rem;">{{ $kelas }}</span></h3>
             <a href="/admin/jadwal" class="btn btn-outline-secondary">
                 ← Kembali
             </a>
@@ -23,9 +17,7 @@
         <!-- Form Tambah Jadwal -->
         <div class="card border-0 shadow-lg rounded-4 mb-4">
             <div class="card-body p-4">
-                <h5 class="fw-bold mb-4" style="color:#ff7a00;">
-                    ➕ Tambah Jadwal Baru
-                </h5>
+                <h5 class="fw-bold mb-4 text-indigo">➕ Tambah Jadwal Baru</h5>
 
                 @if ($errors->any())
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -84,7 +76,7 @@
                         </div>
 
                         <div class="col-12">
-                            <button type="submit" id="submitBtn" class="btn text-white fw-semibold px-4" style="background:#ff7a00;">
+                            <button type="submit" id="submitBtn" class="btn btn-indigo fw-semibold px-4">
                                 Simpan Jadwal
                             </button>
                             <button type="button" id="cancelEditBtn" class="btn btn-outline-secondary ms-2" style="display:none;">
@@ -118,9 +110,7 @@
         <!-- Tabel Jadwal -->
         <div class="card border-0 shadow-lg rounded-4">
             <div class="card-body p-4">
-                <h5 class="fw-bold mb-4" style="color:#ff7a00;">
-                    📋 Daftar Jadwal Kelas {{ $kelas }}
-                </h5>
+                <h5 class="fw-bold mb-4 text-indigo">📋 Daftar Jadwal Kelas {{ $kelas }}</h5>
 
                 @if(session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -132,7 +122,7 @@
                 @if(count($jadwal) > 0)
                     <div class="table-responsive">
                         <table class="table table-hover align-middle">
-                            <thead style="color:#ff7a00; background-color: #fff3e6;">
+                            <thead class="text-indigo">
                                 <tr>
                                     <th>No</th>
                                     <th>Guru</th>
@@ -152,8 +142,7 @@
                                     <td>{{ $j->jam }}</td>
                                     <td class="text-center">
                                         <button type="button"
-                                            class="btn btn-sm text-white me-1 btn-edit"
-                                            style="background:#ff7a00;"
+                                            class="btn btn-sm btn-indigo text-white me-1 btn-edit"
                                             data-id="{{ $j->id }}"
                                             data-guru-id="{{ $j->guru->id }}"
                                             data-mapel="{{ $j->mapel }}"

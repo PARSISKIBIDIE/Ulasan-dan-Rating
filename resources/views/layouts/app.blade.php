@@ -35,6 +35,24 @@
             .table-responsive { -webkit-overflow-scrolling: touch; }
         }
 
+        /* Theme: Deep Indigo & Soft Blue */
+        :root{ --color-indigo: #4F46E5; --color-indigo-dark: #3b3fbd; --page-bg: #F8F9FA; --color-soft-blue: #60A5FA; --card-filter-bg: #F3F4F6; }
+        .bg-indigo { background-color: var(--color-indigo) !important; color: #ffffff !important; }
+        .btn-indigo { background-color: var(--color-indigo); color: #ffffff; border: none; transition: background-color .12s ease-in-out, transform .06s ease; }
+        .btn-indigo:hover, .btn-indigo:focus { background-color: var(--color-indigo-dark); color: #ffffff; }
+        .text-indigo { color: var(--color-indigo) !important; }
+        .text-soft-blue { color: var(--color-soft-blue) !important; }
+        .card-rounded { border-radius: 1rem; }
+        /* .card-accent-top removed: top accent bar disabled */
+        .bg-soft-muted { background-color: var(--card-filter-bg) !important; }
+        .btn-soft { background: var(--color-soft-blue); color: #fff; border: none; }
+        .btn-soft:hover, .btn-soft:focus { background: #4fa9ff; color: #fff; }
+        .btn-rounded { border-radius: .5rem !important; }
+        .suggestion-btn { border-radius: 20px; padding: .25rem .6rem; border-color: var(--color-indigo); color: var(--color-indigo); background: #fff; }
+        .suggestion-btn:hover { background: #eef2ff; color: var(--color-indigo-dark); }
+        .star-rating label.active, .star-rating label.hover { color: var(--color-indigo); transform: translateY(-4px); }
+        @media (max-width: 576px) { .card-rounded { border-radius: .6rem; } }
+
     </style>
 
     <script>
@@ -54,7 +72,7 @@
         }
     </script>
 </head>
-<body style="display: flex; flex-direction: column; min-height: 100vh; margin:0; padding:0; background: #fff3e6;">
+<body style="display: flex; flex-direction: column; min-height: 100vh; margin:0; padding:0; background: #F8F9FA;">
 
     @include('layouts.navbar')
 

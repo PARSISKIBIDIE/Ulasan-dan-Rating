@@ -2,24 +2,14 @@
 
 @section('content')
 
-<div style="
-    min-height: calc(100vh - 56px);
-    background: #fff3e6;
-    padding: 60px 0;
-">
+<div class="main-content py-5">
 
     <div class="container" style="max-width:1100px;">
 
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="fw-bold m-0" style="color:#ff7a00;">
-                Data Guru
-            </h2>
+            <h2 class="fw-bold m-0 text-indigo">Data Guru</h2>
 
-            <a href="/admin/guru/create"
-               class="btn text-white px-4 rounded-3"
-               style="background-color:#ff7a00;">
-                Tambah Guru
-            </a>
+            <a href="/admin/guru/create" class="btn btn-indigo px-4 rounded-3">Tambah Guru</a>
         </div>
 
         <div class="card border-0 shadow-lg rounded-4">
@@ -28,7 +18,7 @@
                 <div class="table-responsive">
                     <table class="table align-middle">
 
-                        <thead style="background-color:#fff0e6;">
+                        <thead>
                             <tr>
                                 <th>Foto</th>
                                 <th>Nama</th>
@@ -109,12 +99,11 @@
                                     </tr>
                                     @php $i++; @endphp
                                 @endforeach
-
                                 <tr>
                                     <td colspan="5" class="text-end">
                                         <form method="POST" action="/admin/guru/import-preview" onsubmit="return confirm('Simpan semua preview guru ke database?');" style="display:inline-block;">
                                             @csrf
-                                            <button class="btn btn-primary">Simpan Semua Preview ke Database</button>
+                                            <button class="btn btn-indigo">Simpan Semua Preview ke Database</button>
                                         </form>
                                     </td>
                                 </tr>

@@ -6,9 +6,9 @@
 	<div class="row justify-content-center">
 		<div class="col-lg-8">
 			<div class="card border-0 shadow-lg rounded-4 overflow-hidden">
-				<div class="card-header d-flex align-items-center justify-content-between py-4 px-4" style="background: linear-gradient(90deg, rgba(255,122,0,0.06), rgba(255,122,0,0.02));">
+				<div class="card-header d-flex align-items-center justify-content-between py-4 px-4 bg-indigo text-white">
 					<div>
-						<h3 class="fw-bold mb-1" style="color:#ff7a00;">Isi Sistem Ulasan dan Rating</h3>
+							<h3 class="fw-bold mb-1">Isi Sistem Ulasan dan Rating</h3>
 						<div class="small text-muted">Guru: <strong>{{ $jadwal->guru->user->name }}</strong> • Mapel: <strong>{{ $jadwal->mapel }}</strong></div>
 					</div>
 					<div class="text-end">
@@ -16,7 +16,7 @@
 							<div class="star-readonly" aria-hidden="true">
 								@for($s=1;$s<=5;$s++)
 									@if($s <= $existingSurvey->rating)
-										<span class="me-1" style="color:#ff7a00;font-size:22px;">★</span>
+											<span class="me-1 text-warning" style="font-size:22px;">★</span>
 									@else
 										<span class="me-1" style="color:#ddd;font-size:22px;">★</span>
 									@endif
@@ -36,7 +36,7 @@
 							<div class="mb-2">
 								@for($s=1;$s<=5;$s++)
 									@if($s <= $existingSurvey->rating)
-										<span style="color:#ff7a00;font-size:26px;">★</span>
+										<span class="text-indigo" style="font-size:26px;">★</span>
 									@else
 										<span style="color:#ddd;font-size:26px;">★</span>
 									@endif
@@ -88,7 +88,7 @@
 
 							<div class="d-flex justify-content-between">
 								<a href="/murid/dashboard" class="btn btn-outline-secondary">Batal</a>
-								<button class="btn btn-primary px-4" style="background:#ff7a00; border-color:#ff7a00;">Kirim Ulasan</button>
+								<button class="btn btn-indigo px-4">Kirim Ulasan</button>
 							</div>
 						</form>
 
@@ -108,16 +108,16 @@
 .star-rating input{ display:none; }
 .tar .star-rating label{ user-select:none; }
 .star-rating label{ color:#ddd; cursor:pointer; transition: transform .08s ease, color .12s ease; user-select:none; }
-.star-rating label.active{ color:#ff7a00; transform: translateY(-4px); }
-.star-rating label.hover{ color:#ff7a00; transform: translateY(-4px); }
+	.star-rating label.active{ color: var(--color-indigo); transform: translateY(-4px); }
+	.star-rating label.hover{ color: var(--color-indigo); transform: translateY(-4px); }
 .form-control-lg { border-radius:8px; }
-	.btn-primary { background:#ff7a00; border-color:#ff7a00; }
+		.btn-indigo { background: var(--color-indigo); border-color: var(--color-indigo); color: #fff; }
 	.btn-outline-secondary { border-radius:6px; }
 
 	/* suggestion styles */
-	.suggestion-btn { border-radius:20px; padding:.25rem .6rem; border-color:#ff7a00; color:#ff7a00; background:#fff; }
-	.suggestion-btn:hover { background:#fff3e6; color:#e85c00; }
-	.suggestion-btn:focus { box-shadow: 0 0 0 0.1rem rgba(255,122,0,0.15); outline:none; }
+	.suggestion-btn { border-radius:20px; padding:.25rem .6rem; border-color: var(--color-indigo); color: var(--color-indigo); background:#fff; }
+	.suggestion-btn:hover { background:#eef2ff; color: var(--color-indigo-dark); }
+	.suggestion-btn:focus { box-shadow: 0 0 0 0.1rem rgba(79,70,229,0.12); outline:none; }
 
 	/* small responsive tweaks */
 	@media (max-width: 576px){ .star-rating{ font-size:28px; } }

@@ -1,5 +1,4 @@
-<nav class="navbar navbar-expand-lg shadow-sm"
-     style="background: linear-gradient(90deg, #ff9a3c, #ff7a00);">
+<nav class="navbar navbar-expand-lg shadow-sm bg-indigo navbar-dark">
 
     <div class="container-fluid">
 

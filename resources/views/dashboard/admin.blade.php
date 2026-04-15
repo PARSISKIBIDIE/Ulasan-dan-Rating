@@ -2,26 +2,21 @@
 
 @section('content')
 
-<div class="main-content" style="background: #fff3e6;">
+<div class="main-content">
 
     <div class="container">
 
-        <h2 class="fw-bold mb-5" style="color:#ff7a00;">
-            Dashboard Admin
-        </h2>
+        <h2 class="fw-bold mt-4 mb-5 text-indigo">Dashboard Admin</h2>
 
         <div class="row g-4 justify-content-center">
 
             <div class="col-md-4">
                 <div class="card border-0 shadow-lg rounded-4 h-100">
                     <div class="card-body text-center p-3 p-md-5">
-                        <h5 class="fw-bold mb-3">Kelola Guru</h5>
+                        <i class="fas fa-chalkboard-teacher fa-2x text-soft-blue mb-2" aria-hidden="true"></i>
+                        <h5 class="fw-bold mb-3 text-indigo">Kelola Guru</h5>
                         <p class="text-muted">Tambah, edit, dan hapus data guru.</p>
-                        <a href="/admin/guru"
-                           class="btn text-white px-4 rounded-3"
-                           style="background-color:#ff7a00;">
-                            Masuk
-                        </a>
+                        <a href="/admin/guru" class="btn btn-indigo px-4 rounded-3">Masuk</a>
                     </div>
                 </div>
             </div>
@@ -29,13 +24,10 @@
             <div class="col-md-4">
                 <div class="card border-0 shadow-lg rounded-4 h-100">
                     <div class="card-body text-center p-3 p-md-5">
-                        <h5 class="fw-bold mb-3">Kelola Jadwal</h5>
+                        <i class="fas fa-calendar-alt fa-2x text-soft-blue mb-2" aria-hidden="true"></i>
+                        <h5 class="fw-bold mb-3 text-indigo">Kelola Jadwal</h5>
                         <p class="text-muted">Atur jadwal mengajar guru untuk setiap kelas.</p>
-                        <a href="/admin/jadwal"
-                           class="btn text-white px-4 rounded-3"
-                           style="background-color:#ff7a00;">
-                            Masuk
-                        </a>
+                        <a href="/admin/jadwal" class="btn btn-indigo px-4 rounded-3">Masuk</a>
                     </div>
                 </div>
             </div>
@@ -43,13 +35,10 @@
             <div class="col-md-4">
                 <div class="card border-0 shadow-lg rounded-4 h-100">
                     <div class="card-body text-center p-3 p-md-5">
-                        <h5 class="fw-bold mb-3">Hasil Sistem Ulasan dan Rating</h5>
+                        <i class="fas fa-star-half-alt fa-2x text-soft-blue mb-2" aria-hidden="true"></i>
+                        <h5 class="fw-bold mb-3 text-indigo">Hasil Sistem Ulasan dan Rating</h5>
                         <p class="text-muted">Lihat hasil dan laporan sistem ulasan dan rating.</p>
-                        <a href="/admin/hasil-survey"
-                           class="btn text-white px-4 rounded-3"
-                           style="background-color:#ff7a00;">
-                            Masuk
-                        </a>
+                        <a href="/admin/hasil-survey" class="btn btn-indigo px-4 rounded-3">Masuk</a>
                     </div>
                 </div>
             </div>
@@ -65,7 +54,7 @@
 
                         <form method="POST" action="/admin/reset-surveys" onsubmit="return confirm('Yakin ingin mereset semua sistem ulasan dan rating? Tindakan ini tidak dapat dikembalikan.');" style="display:inline-block;">
                             @csrf
-                            <button class="btn btn-danger px-4">Reset Semua Sistem Ulasan dan Rating</button>
+                            <button class="btn btn-danger px-4 rounded-3">Reset Semua Sistem Ulasan dan Rating</button>
                         </form>
 
                     </div>
@@ -75,7 +64,7 @@
 
         <div class="row mt-3">
             <div class="col-12">
-                <div class="card border-0 shadow-lg rounded-4">
+                <div class="card border-0 shadow-lg rounded-4 bg-soft-muted">
                     <div class="card-body p-4">
                         <h5 class="fw-bold mb-3">Reset Berdasarkan Kelas / Hari</h5>
                         <p class="text-muted">Pilih kelas dan/atau hari untuk mereset sistem ulasan dan rating hanya pada filter tersebut. Biarkan kosong untuk tidak memfilter.</p>
@@ -84,7 +73,7 @@
                             @csrf
                             <div class="row g-2 align-items-center">
                                 <div class="col-md-4">
-                                    <label class="form-label">Kelas (opsional)</label>
+                                    <label class="form-label"><i class="fas fa-graduation-cap me-1 text-soft-blue" aria-hidden="true"></i> Kelas (opsional)</label>
                                     @php
                                         $classes = [
                                             'X RPL 1', 'X RPL 2', 'X MPLB', 'X AK', 'X TKJ',
@@ -101,7 +90,7 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="form-label">Hari (opsional)</label>
+                                    <label class="form-label"><i class="fas fa-calendar-alt me-1 text-soft-blue" aria-hidden="true"></i> Hari (opsional)</label>
                                     <select name="hari" class="form-select">
                                         <option value="">-- Pilih Hari --</option>
                                         @foreach(['Senin','Selasa','Rabu','Kamis','Jumat'] as $d)
@@ -111,7 +100,7 @@
                                 </div>
 
                                 <div class="col-md-4 mt-4 mt-md-0 text-md-end">
-                                    <button class="btn btn-warning px-4">Reset Berdasarkan Filter</button>
+                                    <button class="btn btn-warning px-4 rounded-3">Reset Berdasarkan Filter</button>
                                 </div>
                             </div>
                         </form>
@@ -147,7 +136,7 @@
 
                                 <form method="POST" action="/admin/day-release/toggle/{{ strtolower($d) }}" style="display:inline-block;">
                                     @csrf
-                                    <button class="btn px-3 py-2 {{ $released ? 'btn-danger' : 'btn-primary' }}">
+                                    <button class="btn px-3 py-2 rounded-3 {{ $released ? 'btn-danger' : 'btn-soft' }}">
                                         {{ $d }} — {{ $released ? 'Sembunyikan' : 'Keluarkan' }}
                                     </button>
                                 </form>
@@ -195,7 +184,7 @@
 
                         <form method="POST" action="/admin/reset-surveys/now" onsubmit="return confirm('Yakin ingin menjalankan reset sekarang? Tindakan ini akan menghapus semua survey.');" class="mt-3">
                             @csrf
-                            <button type="submit" class="btn btn-danger w-100">Jalankan sekarang</button>
+                            <button type="submit" class="btn btn-danger w-100 rounded-3">Jalankan sekarang</button>
                         </form>
                     </div>
                 </div>

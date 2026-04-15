@@ -13,12 +13,12 @@
 <style>
 /* Jadwal table compact styles */
 .jadwal-table { width:100%; border-collapse:separate; border-spacing:0; }
-.jadwal-table th { color: #ff7a00; font-weight:700; font-size:0.95rem; border-bottom:1px solid #eee; padding:0.55rem 0.75rem; }
+.jadwal-table th { color: var(--color-indigo); font-weight:700; font-size:0.95rem; border-bottom:1px solid #eee; padding:0.55rem 0.75rem; }
 .jadwal-table td { padding:0.5rem 0.75rem; vertical-align:middle; font-size:0.95rem; }
 .jadwal-table tbody tr + tr td { border-top:1px solid #f5f5f5; }
 .jadwal-table .text-truncate { max-width:220px; display:inline-block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; vertical-align:middle; }
 .mapel-full { display:block; white-space:normal; word-break:break-word; max-width:100%; }
-.btn-survey { background:#ff7a00; color:#fff; border-radius:20px; padding:0.28rem 0.8rem; font-size:0.86rem; border:none; }
+.btn-survey { background:var(--color-indigo); color:#fff; border-radius:20px; padding:0.28rem 0.8rem; font-size:0.86rem; border:none; }
 .jadwal-day { margin-bottom:1.2rem; }
 @media (max-width:768px) {
 	.jadwal-table th, .jadwal-table td { padding:0.4rem 0.5rem; font-size:0.9rem; }
@@ -26,14 +26,12 @@
 }
 </style>
 
-<div class="main-content" style="background:#fff3e6;">
+<div class="main-content">
 
 <div class="container">
 
 <!-- ================= TITLE ================= -->
-<h2 class="fw-bold text-center mb-5" style="color:#ff7a00;">
-Dashboard Murid
-</h2>
+<h2 class="fw-bold text-center mt-4 mb-5 text-indigo">Dashboard Murid</h2>
 
 @if(isset($replies) && $replies->count() > 0)
 	<div class="mb-4">
@@ -198,9 +196,7 @@ Kelas Kamu
 
 <div class="card-body p-3 p-md-5">
 
-<h5 class="fw-bold mb-3" style="color:#ff7a00;">
-Pilih Hari & Jam Pelajaran
-</h5>
+<h5 class="fw-bold mb-3 text-indigo">Pilih Hari & Jam Pelajaran</h5>
 
 <div class="row g-2">
 
@@ -245,9 +241,7 @@ Pilih Hari & Jam Pelajaran
 
 <div class="card-body p-4">
 
-<h4 class="fw-bold mb-4 text-center" style="color:#ff7a00;">
-Jadwal Pelajaran
-</h4>
+<h4 class="fw-bold mb-4 text-center text-indigo">Jadwal Pelajaran</h4>
 
 <div class="table-responsive">
 
@@ -262,7 +256,7 @@ Jadwal Pelajaran
 
 @foreach($weekdays as $day)
 	<div class="day-block mb-4" data-day="{{ $day }}">
-		<h5 class="fw-semibold text-start" style="color:#ff7a00;">{{ $day }}</h5>
+		<h5 class="fw-semibold text-start text-indigo">{{ $day }}</h5>
 
 			@if(isset($grouped[$day]))
 			<div class="table-responsive">

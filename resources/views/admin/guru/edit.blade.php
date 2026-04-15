@@ -2,13 +2,11 @@
 
 @section('content')
 
-<div class="main-content" style="background: #fff3e6;">
+<div class="main-content">
 
     <div class="container">
 
-        <h2 class="fw-bold mb-4" style="color:#ff7a00;">
-            Edit Guru
-        </h2>
+        <h2 class="fw-bold mb-4 text-indigo">Edit Guru</h2>
 
         <div class="card border-0 shadow-lg rounded-4">
             <div class="card-body p-3 p-md-5">
@@ -58,10 +56,7 @@
                             Kembali
                         </a>
 
-                        <button class="btn text-white px-4 rounded-3"
-                                style="background-color:#ff7a00;">
-                            Update
-                        </button>
+                        <button class="btn btn-indigo px-4 rounded-3">Update</button>
 
                     </div>
 

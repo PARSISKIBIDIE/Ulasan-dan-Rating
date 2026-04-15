@@ -7,24 +7,20 @@
 @if($guru)
 <div style="text-align: center; margin-bottom: 30px;">
     @if($guru->foto)
-        <img src="{{ asset('storage/' . $guru->foto) }}" 
-             alt="{{ $guru->user->name }}" 
-             style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid #ff7a00; margin-bottom: 15px;">
+           <img src="{{ asset('storage/' . $guru->foto) }}" 
+               alt="{{ $guru->user->name }}" 
+               style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid #4F46E5; margin-bottom: 15px;">
     @else
-        <div style="width: 120px; height: 120px; margin: 0 auto 15px; border-radius: 50%; background: #ffd580; display: flex; align-items: center; justify-content: center; font-size: 48px; border: 4px solid #ff7a00;">
+        <div style="width: 120px; height: 120px; margin: 0 auto 15px; border-radius: 50%; background: #ffd580; display: flex; align-items: center; justify-content: center; font-size: 48px; border: 4px solid #4F46E5;">
             👨‍🏫
         </div>
     @endif
-    <h3 class="fw-bold mb-2" style="color:#ff7a00;">
-        {{ $guru->user->name }}
-    </h3>
+    <h3 class="fw-bold mb-2 text-indigo">{{ $guru->user->name }}</h3>
     <p class="text-muted">{{ $guru->mapel }}</p>
 </div>
 @endif
 
-<h3 class="fw-bold mb-4" style="color:#ff7a00;">
-Komentar Murid
-</h3>
+<h3 class="fw-bold mb-4 text-indigo">Komentar Murid</h3>
 
 <div class="card shadow-lg border-0">
 
@@ -126,9 +122,9 @@ Komentar Murid
             <div class="mb-2">
                 <textarea name="message" class="form-control form-control-sm" rows="3" placeholder="Tulis balasan..." required style="resize:vertical;"></textarea>
             </div>
-            <div class="d-flex justify-content-end">
-                <button class="btn btn-sm btn-primary">Kirim Balasan</button>
-            </div>
+                <div class="d-flex justify-content-end">
+                <button class="btn btn-sm btn-indigo">Kirim Balasan</button>
+                </div>
         </form>
     </td>
 

@@ -2,17 +2,11 @@
 
 @section('content')
 
-<div style="
-    min-height: calc(100vh - 70px);
-    background: #fff3e6;
-    padding: 40px;
-">
+<div class="main-content py-5">
 
 <div class="container-fluid">
 
-<h3 class="fw-bold mb-4" style="color:#ff7a00;">
-Edit Jadwal Mengajar
-</h3>
+<h3 class="fw-bold mb-4 text-indigo">Edit Jadwal Mengajar</h3>
 
 <div class="card border-0 shadow-lg rounded-4">
 <div class="card-body p-4">
@@ -70,10 +64,7 @@ value="{{$jadwal->mapel}}">
 </datalist>
 </div>
 
-<button class="btn text-white fw-semibold px-4"
-style="background:#ff7a00;">
-Update Jadwal
-</button>
+<button class="btn btn-indigo fw-semibold px-4">Update Jadwal</button>
 
 <a href="/admin/jadwal" class="btn btn-outline-secondary ms-2">
 Batal
