@@ -60,7 +60,7 @@
 						<div style="flex:1 1 auto; min-width:0;">
 							<div class="d-flex justify-content-between align-items-start">
 								<div class="fw-semibold">{{ $teacherName }}</div>
-								<div class="small text-muted">{{ $r->created_at->format('d M Y H:i') }}</div>
+								<div class="small text-muted"><time class="reply-time" data-ts="{{ $r->created_at->getTimestamp() }}">{{ $r->created_at->format('d M Y H:i') }}</time></div>
 							</div>
 							<div class="mt-1">{{ $r->message }}</div>
 							<div class="small text-muted mt-1">Untuk komentar: "{{ \Illuminate\Support\Str::limit($r->survey->komentar, 100) }}"</div>
@@ -111,7 +111,7 @@
 								</div>
 								<div>
 									<div class="fw-semibold">{{ $teacherName }}</div>
-									<div class="small text-muted">{{ $r->read_at->format('d M Y H:i') }}</div>
+									<div class="small text-muted"><time class="reply-time" data-ts="{{ $r->read_at->getTimestamp() }}">{{ $r->read_at->format('d M Y H:i') }}</time></div>
 								</div>
 							</div>
 							<div class="small text-muted">Untuk komentar: "{{ \Illuminate\Support\Str::limit($r->survey->komentar, 80) }}"</div>

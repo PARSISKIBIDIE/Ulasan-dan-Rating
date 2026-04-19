@@ -2,6 +2,47 @@
 
 @section('content')
 
+<style>
+    .survey-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .survey-comments-table {
+        min-width: 980px;
+        table-layout: fixed;
+    }
+
+    .survey-comments-table th,
+    .survey-comments-table td {
+        white-space: normal;
+        word-break: break-word;
+        vertical-align: top;
+    }
+
+    .survey-col-komentar {
+        min-width: 260px;
+    }
+
+    .survey-col-aksi {
+        min-width: 360px;
+    }
+
+    @media (max-width: 768px) {
+        .survey-table-wrap table.survey-comments-table {
+            display: table !important;
+            width: 100%;
+            white-space: normal !important;
+        }
+
+        .survey-comments-table th,
+        .survey-comments-table td {
+            padding: 0.5rem;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+
 <div class="container mt-5 p-3 p-md-4">
 
 @if($guru)
@@ -31,16 +72,16 @@
         Belum ada komentar dari murid.
     </div>
 @else
-<div class="table-responsive">
-<table class="table table-striped table-hover table-bordered">
+<div class="table-responsive survey-table-wrap">
+<table class="table table-striped table-hover table-bordered survey-comments-table">
 
 <thead class="table-dark">
 <tr>
 <th>Murid</th>
 <th>Kelas</th>
-<th>Komentar</th>
+<th class="survey-col-komentar">Komentar</th>
 <th>Tanggal</th>
-<th>Balasan / Aksi</th>
+<th class="survey-col-aksi">Balasan / Aksi</th>
 </tr>
 </thead>
 
@@ -54,11 +95,11 @@
 
 <td>{{ $s->murid->murid->kelas ?? '-' }}</td>
 
-<td style="max-width: 300px; word-wrap: break-word;">{{ $s->komentar }}</td>
+<td class="survey-col-komentar">{{ $s->komentar }}</td>
 
 <td>{{ $s->created_at->format('d M Y') }}</td>
 
-    <td style="max-width: 420px; vertical-align: top;">
+    <td class="survey-col-aksi">
         @php
             // Build a merged thread of muridReplies and guru replies sorted by timestamp
             $thread = collect();
@@ -102,9 +143,11 @@
                             </div>
                         </div>
                         <div style="flex:1 1 auto; min-width:0;">
-                            <div class="small text-muted">{{ 
-                                ($t->created_at instanceof \Illuminate\Support\Carbon) ? $t->created_at->format('d M Y H:i') : (string)$t->created_at
-                             }} — <strong>{{ $t->name }}</strong></div>
+                            <div class="small text-muted">
+                                <time class="reply-time" data-ts="{{ ($t->created_at instanceof \Illuminate\Support\Carbon) ? $t->created_at->getTimestamp() : strtotime((string)$t->created_at) }}">
+                                    {{ ($t->created_at instanceof \Illuminate\Support\Carbon) ? $t->created_at->format('d M Y H:i') : (string)$t->created_at }}
+                                </time> — <strong>{{ $t->name }}</strong>
+                            </div>
                             @if($t->type == 'murid')
                                 <div class="mt-1 p-2 rounded" style="background:#0d6efd;color:#fff;">{{ $t->message }}</div>
                             @else

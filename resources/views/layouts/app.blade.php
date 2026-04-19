@@ -107,5 +107,50 @@
 
 @stack('scripts')
 
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    function formatWIBFromTs(ts){
+        if(!ts) return '';
+        var seconds = parseInt(String(ts).trim(), 10);
+        if (isNaN(seconds)) return '';
+        var ms = seconds * 1000;
+        // Add 7 hours to get WIB, then read UTC components to avoid client TZ influence
+        var d = new Date(ms + (7 * 60 * 60 * 1000));
+        var day = d.getUTCDate();
+        var monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        var month = monthNames[d.getUTCMonth()];
+        var year = d.getUTCFullYear();
+        var hours = String(d.getUTCHours()).padStart(2,'0');
+        var mins = String(d.getUTCMinutes()).padStart(2,'0');
+        return day + ' ' + month + ' ' + year + ' ' + hours + ':' + mins + ' WIB';
+    }
+
+    function resolveToEpochSeconds(raw){
+        if(!raw) return null;
+        raw = String(raw).trim();
+        // If numeric (10+ digits) assume epoch seconds
+        if (/^\d{10,}$/.test(raw)) return parseInt(raw,10);
+        // Try ISO parse
+        var parsed = Date.parse(raw);
+        if (!isNaN(parsed)) return Math.floor(parsed/1000);
+        return null;
+    }
+
+    function updateReplyTimes(){
+        document.querySelectorAll('time.reply-time').forEach(function(el){
+            var ts = el.dataset.ts || el.getAttribute('datetime') || el.textContent || '';
+            var secs = resolveToEpochSeconds(ts);
+            if (!secs) return;
+            var txt = formatWIBFromTs(secs);
+            if (txt) el.textContent = txt;
+        });
+    }
+
+    updateReplyTimes();
+    // keep minutes up-to-date
+    setInterval(updateReplyTimes, 30000);
+});
+</script>
+
 </body>
 </html>

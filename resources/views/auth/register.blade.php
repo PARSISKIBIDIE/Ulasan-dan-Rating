@@ -63,21 +63,11 @@
                                 <small id="matchHelp" class="text-muted"></small>
                             </div>
 
-                            <!-- ROLE -->
-                            <div class="mb-3">
-                                <label class="form-label fw-semibold">Role</label>
-                                <select name="role" id="role"
-                                        class="form-select rounded-3" required>
-                                    <option value="">-- Pilih Role --</option>
-                                    <option value="murid">Murid</option>
-                                </select>
-                            </div>
-
                             <!-- KELAS -->
-                            <div class="mb-3" id="kelasField" style="display:none;">
+                            <div class="mb-3">
                                 <label class="form-label fw-semibold">Kelas</label>
                                 <select name="kelas"
-                                        class="form-select rounded-3">
+                                        class="form-select rounded-3" required>
                                     <option value="">-- Pilih Kelas --</option>
                                     <option value="X RPL 1">X RPL 1</option>
                                     <option value="X RPL 2">X RPL 2</option>
@@ -121,19 +111,6 @@
         </div>
     </div>
 </div>
-
-<!-- SCRIPT ROLE -->
-<script>
-document.getElementById('role').addEventListener('change', function() {
-    let kelasField = document.getElementById('kelasField');
-
-    if (this.value === 'murid') {
-        kelasField.style.display = 'block';
-    } else {
-        kelasField.style.display = 'none';
-    }
-});
-</script>
 
 <!-- SCRIPT SHOW PASSWORD -->
 <script>
